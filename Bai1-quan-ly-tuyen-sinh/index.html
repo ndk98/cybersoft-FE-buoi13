@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quan ly tuyen sinh</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            clifford: "#da373d",
+                        },
+                    },
+                },
+            };
+        </script>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <h1 class="sm:mx-auto sm:w-full sm:max-w-md pt-12 text-2xl font-bold">
+            Quản Lý Tuyển Sinh
+        </h1>
+        <div class="sm:mx-auto sm:w-full sm:max-w-md pt-12">
+            <p
+                id="notification"
+                class="p-5 bg-lime-300 font-bold text-slate-700 rounded-sm"
+                style="display: none"
+            >
+                Chúc mừng, bạn đã đủ điểm.
+            </p>
+        </div>
+        <div class="flex flex-col justify-center py-6 sm:px-6 lg:px-8">
+            <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+                <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                    <form method="" action="#" id="my-form">
+                        <div>
+                            <label
+                                class="block text-sm font-medium text-gray-700"
+                                for="score-standard"
+                            >
+                                Điểm chuẩn hội đồng
+                            </label>
+                            <div class="mt-1">
+                                <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text"
+                                    name="score-standard"
+                                    id="score-standard"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label
+                                class="block text-sm font-medium text-gray-700"
+                                for="score-a"
+                            >
+                                Điểm môn A
+                            </label>
+                            <div class="mt-1">
+                                <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text"
+                                    name="score-a"
+                                    id="score-a"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label
+                                class="block text-sm font-medium text-gray-700"
+                                for="score-b"
+                            >
+                                Điểm môn B
+                            </label>
+                            <div class="mt-1">
+                                <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text"
+                                    name="score-b"
+                                    id="score-b"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label
+                                class="block text-sm font-medium text-gray-700"
+                                for="score-c"
+                            >
+                                Điểm môn C
+                            </label>
+                            <div class="mt-1">
+                                <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text"
+                                    name="score-c"
+                                    id="score-c"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label
+                                class="block text-sm font-medium text-gray-700"
+                                for="area"
+                            >
+                                Khu vực ưu tiên
+                            </label>
+                            <div class="mt-1">
+                                <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text"
+                                    name="area"
+                                    id="area"
+                                    placeholder="A hoặc B hoặc C"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label
+                                class="block text-sm font-medium text-gray-700"
+                                for="object"
+                            >
+                                Đối tượng ưu tiên
+                            </label>
+                            <div class="mt-1">
+                                <input
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    type="text"
+                                    name="object"
+                                    id="object"
+                                    placeholder="1 hoặc 2 hoặc 3"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mt-6 flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="ml-2 block text-sm text-gray-900">
+                                    Tổng điểm:
+                                </span>
+                                <p
+                                    id="score-total"
+                                    class="text-xl text-red-500 mx-4"
+                                ></p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <button
+                                id="check"
+                                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
+                                Kiểm tra
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
